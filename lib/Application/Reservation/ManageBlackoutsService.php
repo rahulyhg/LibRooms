@@ -87,7 +87,8 @@ class ManageBlackoutsService implements IManageBlackoutsService
 		$blackoutFilter = $filter->GetFilter();
 		if (!$user->IsAdmin)
 		{
-			$groups = $this->userRepository->LoadGroups($user->UserId, array(RoleLevel::RESOURCE_ADMIN, RoleLevel::SCHEDULE_ADMIN));
+			// Modified by Cameron Stewart
+			$groups = $this->userRepository->LoadGroups($user->UserId, array(RoleLevel::RESOURCE_ADMIN, RoleLevel::SCHEDULE_ADMIN, RoleLevel::SCHEDULER));
 			$groupIds = array();
 			foreach ($groups as $group)
 			{

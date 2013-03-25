@@ -48,6 +48,8 @@ class ScheduleAdminManageReservationsService implements IManageReservationsServi
 	{
 		$groupIds = array();
 		$groups = $this->userRepository->LoadGroups($user->UserId, RoleLevel::SCHEDULE_ADMIN);
+		// Modified by Cameron Stewart
+		$groups = $groups + $this->userRepository->LoadGroups($user->UserId, RoleLevel::SCHEDULER);
 		foreach ($groups as $group)
 		{
 			$groupIds[] = $group->GroupId;

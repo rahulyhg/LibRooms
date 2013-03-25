@@ -17,13 +17,33 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 */
- 
-define('ROOT_DIR', '../../');
-
-require_once(ROOT_DIR . 'Pages/Admin/ManageBlackoutsPage.php');
-require_once(ROOT_DIR . 'Presenters/Admin/ManageBlackoutsPresenter.php');
-
-// Modified by Cameron Stewart
-$page = new RoleRestrictedPageDecorator(new ManageBlackoutsPage(), array(RoleLevel::APPLICATION_ADMIN, RoleLevel::RESOURCE_ADMIN, RoleLevel::SCHEDULE_ADMIN, RoleLevel::SCHEDULER));
-$page->PageLoad();
+// Created by Cameron Stewart
+class AdminPlusSchedulerExcludedRule implements IReservationValidationRule
+{
+	/**
+	 * @var IReservationValidationRule
+	 */
+	private $rule;
+	
+	/**
+	 * @var UserSession
+	 */
+	private $userSession;
+	
+	public function __construct(IReservationValidationRule $baseRule, UserSession $userSession)
+	{
+		$this->rule = $baseRule;
+		$this->userSession = $userSession;
+	}
+	
+	public function Validate($reservationSeries)
+	{
+		if ($this->userSession->IsScheduler || $this->userSession->IsAdmin)
+		{
+			return new ReservationRuleResult(true);
+		}
+		
+		return $this->rule->Validate($reservationSeries);
+	}
+}
 ?>

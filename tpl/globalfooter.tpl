@@ -22,7 +22,8 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 	</div><!-- close wrapper-->
 
     	<div class="page-footer">
-			&copy; 2013 phpScheduleIt <br/><a href="http://phpscheduleit.sourceforge.net">phpScheduleIt v{$Version}</a>
+University Libraries, MSC05 3020<br/>
+1 University of New Mexico, Albuquerque, NM 87131<br /><br /><a href="http://library.unm.edu">University Libraries Web Site</a>
     	</div>
 	</body>
 </html>

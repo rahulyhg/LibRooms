@@ -47,13 +47,18 @@ class ScheduleAdminScheduleRepository extends ScheduleRepository
 		{
 			return $schedules;
 		}
+		if ($this->user->IsScheduler)
+		{
+			return $schedules;
+		}
 		
 		//Added by Cameron Stewart
+		/*
 		if ($user->IsScheduler($schedule))
 		{
 			return $schedules;
 		}
-
+		*/
 		$user = $this->repo->LoadById($this->user->UserId);
 
 		$filteredList = array();

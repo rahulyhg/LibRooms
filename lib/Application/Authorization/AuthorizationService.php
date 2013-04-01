@@ -116,7 +116,8 @@ class AuthorizationService implements IAuthorizationService
 	 */
 	public function CanReserveForOthers(UserSession $reserver)
 	{
-		if ($reserver->IsAdmin)
+		// Modified by Cameron Stewart
+		if ($reserver->IsAdmin || $reserver->IsScheduler)
 		{
 			return true;
 		}

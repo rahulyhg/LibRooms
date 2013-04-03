@@ -44,7 +44,11 @@ $conf['settings']['name.format'] = '{first} {last}';     		// display format whe
 $conf['settings']['css.extension.file'] = ''; 			      	// full or relative url to an additional css file to include. this can be used to override the default style
 $conf['settings']['disable.password.reset'] = 'false'; 	      	// if the password reset functionality should be disabled
 $conf['settings']['home.url'] = 'http://libtaco-dev.unm.edu/schedule'; 	      					// the url to open when the logo is clicked
+<<<<<<< HEAD
 $conf['settings']['logout.url'] = 'http://libtaco-dev.unm.edu/schedule'; 
+=======
+$conf['settings']['logout.url'] = 'http://libtaco-dev.unm.edu/schedule';
+>>>>>>> cam
 
 /**
  * ical integration configuration
@@ -118,7 +122,11 @@ $conf['settings']['plugins']['PostReservation'] = '';
 /**
  * Installation settings
  */
+<<<<<<< HEAD
 $conf['settings']['install.password'] = '';
+=======
+$conf['settings']['install.password'] = '514a0106723c8';
+>>>>>>> cam
 /**
  * Pages
  */

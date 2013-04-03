@@ -29,8 +29,6 @@ require_once(ROOT_DIR . 'lib/Application/Reservation/Validation/IReservationVali
 require_once(ROOT_DIR . 'lib/Application/Reservation/Validation/ReservationValidationRuleProcessor.php');
 
 require_once(ROOT_DIR . 'lib/Application/Reservation/Validation/AdminExcludedRule.php');
-//Added by Cameron Stewart
-require_once(ROOT_DIR . 'lib/Application/Reservation/Validation/AdminPlusSchedulerExcludedRule.php');
 require_once(ROOT_DIR . 'lib/Application/Reservation/Validation/ResourceAvailabilityRule.php');
 require_once(ROOT_DIR . 'lib/Application/Reservation/Validation/ExistingResourceAvailabilityRule.php');
 require_once(ROOT_DIR . 'lib/Application/Reservation/Validation/ReservationDateTimeRule.php');

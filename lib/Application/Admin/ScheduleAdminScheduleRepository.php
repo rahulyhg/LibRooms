@@ -66,7 +66,6 @@ class ScheduleAdminScheduleRepository extends ScheduleRepository
 	public function Update(Schedule $schedule)
 	{
 		$user = $this->repo->LoadById($this->user->UserId);
-		
 		if (!$user->IsScheduleAdminFor($schedule))
 		{
 			// if we got to this point, the user does not have the ability to update the schedule
@@ -79,7 +78,6 @@ class ScheduleAdminScheduleRepository extends ScheduleRepository
 	public function Add(Schedule $schedule, $copyLayoutFromScheduleId)
 	{
 		$user = $this->repo->LoadById($this->user->UserId);
-		
 		if (!$user->IsInRole(RoleLevel::SCHEDULE_ADMIN))
 		{
 			throw new Exception(sprintf('Schedule Add Failed. User %s does not have admin access.', $this->user->UserId));
@@ -87,7 +85,6 @@ class ScheduleAdminScheduleRepository extends ScheduleRepository
 
 		foreach ($user->Groups() as $group)
 		{
-	
 			if ($group->IsScheduleAdmin)
 			{
 				$schedule->SetAdminGroupId($group->GroupId);

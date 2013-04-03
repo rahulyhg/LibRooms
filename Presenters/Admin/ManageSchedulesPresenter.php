@@ -261,10 +261,7 @@ class ManageSchedulesPresenter extends ActionPresenter
 			$layouts[$schedule->GetId()] = $layout;
 		}
 
-		//Added and modified by Cameron Stewart
-		$groups = $this->groupViewRepository->GetGroupsByRole(RoleLevel::SCHEDULE_ADMIN);
-		$groups = $groups + $this->groupViewRepository->GetGroupsByRole(RoleLevel::SCHEDULER);
-		$this->page->BindGroups($groups);
+		$this->page->BindGroups($this->groupViewRepository->GetGroupsByRole(RoleLevel::SCHEDULE_ADMIN));
 
 		$this->page->BindSchedules($schedules, $layouts, $sourceSchedules);
 		$this->PopulateTimezones();

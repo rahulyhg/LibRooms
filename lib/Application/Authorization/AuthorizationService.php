@@ -47,14 +47,6 @@ interface IRoleService
 	 * @return bool
 	 */
 	public function IsScheduleAdministrator(User $user);
-	
-	/**
-	 * @abstract
-	 * @param User $user
-	 * @return bool
-	 */
-	public function IsScheduler(User $user);
-	
 }
 
 interface IAuthorizationService extends IRoleService
@@ -116,8 +108,7 @@ class AuthorizationService implements IAuthorizationService
 	 */
 	public function CanReserveForOthers(UserSession $reserver)
 	{
-		// Modified by Cameron Stewart
-		if ($reserver->IsAdmin || $reserver->IsScheduler)
+		if ($reserver->IsAdmin)
 		{
 			return true;
 		}
@@ -186,16 +177,6 @@ class AuthorizationService implements IAuthorizationService
     public function IsScheduleAdministrator(User $user)
     {
         return $user->IsInRole(RoleLevel::SCHEDULE_ADMIN);
-    }
-	
-	/**
-     * @param User $user
-     * @return bool
-	 * Added by Cameron Stewarts
-     */
-    public function IsScheduler(User $user)
-    {
-        return $user->IsInRole(RoleLevel::SCHEDULER);
     }
 
 	/**

@@ -30,8 +30,6 @@ class UserSession
 	public $IsGroupAdmin = false;
 	public $IsResourceAdmin = false;
 	public $IsScheduleAdmin = false;
-	// Added by Cameron Stewart
-	public $IsScheduler = false;
 	public $LanguageCode = '';
 	public $PublicId = '';
 	public $LoginTime = '';

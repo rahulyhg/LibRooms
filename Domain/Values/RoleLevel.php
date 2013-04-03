@@ -28,9 +28,6 @@ class RoleLevel
 	const APPLICATION_ADMIN = 2;
     const RESOURCE_ADMIN = 3;
 	const SCHEDULE_ADMIN = 4;
-	// Added by Cameron Stewart.  This Role is a slightly neutered version of SCHEDULE_ADMIN.
-	// This role can schedule resources regardless of imposed rule, but that is all.
-	const SCHEDULER = 5;
 	
 }
 ?>

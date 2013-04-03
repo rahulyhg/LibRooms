@@ -51,8 +51,6 @@ class WebServiceUserSession extends UserSession
 		$webSession->IsGroupAdmin = $session->IsGroupAdmin;
 		$webSession->IsResourceAdmin = $session->IsResourceAdmin;
 		$webSession->IsScheduleAdmin = $session->IsScheduleAdmin;
-		// Modified by Cameron Stewart
-		$webSession->IsScheduler = $session->IsScheduler;
 		$webSession->LanguageCode = $session->LanguageCode;
 		$webSession->PublicId = $session->PublicId;
 		$webSession->ScheduleId = $session->ScheduleId;

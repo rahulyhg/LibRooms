@@ -231,8 +231,6 @@ class User
 	private $isApplicationAdmin = false;
 	private $isResourceAdmin = false;
 	private $isScheduleAdmin = false;
-	// Added by Cameron Stewart
-	private $isScheduler = false;
 
 	/**
 	 * @param array|int[] $allowedResourceIds
@@ -267,10 +265,6 @@ class User
 			if ($group->IsScheduleAdmin)
 			{
 				$this->isScheduleAdmin = true;
-			}
-			if ($group->IsScheduler)
-			{
-				$this->isScheduler = true;
 			}
 		}
 
@@ -628,34 +622,6 @@ class User
 
 		return false;
 	}
-	
-		/**
-	 * @param ISchedule $schedule
-	 * @return bool
-	 * Created by Cameron Stewart
-	 */
-	public function IsSchedulerFor(ISchedule $schedule)
-	{
-		if ($this->isApplicationAdmin)
-		{
-			return true;
-		}
-
-		if (!$this->isScheduleAdmin || !$this->isScheduler)
-		{
-			return false;
-		}
-
-		foreach ($this->groups as $group)
-		{
-			if ($group->GroupId == $schedule->GetAdminGroupId())
-			{
-				return true;
-			}
-		}
-
-		return false;
-	}
 
 	/**
 	 * @param int|RoleLevel $roleLevel
@@ -678,11 +644,6 @@ class User
 		if ($roleLevel == RoleLevel::SCHEDULE_ADMIN)
 		{
 			return $this->isScheduleAdmin;
-		}
-		//Added by Cameron Stewart
-		if ($roleLevel == RoleLevel::SCHEDULER)
-		{
-			return $this->isScheduler;
 		}
 
 		return false;
@@ -909,12 +870,6 @@ class UserGroup
 	 * @var bool
 	 */
 	public $IsScheduleAdmin = false;
-	
-		/**
-	 * @var bool
-	 */
-	 // Added by Cameron Stewart
-	public $IsScheduler = false;
 
 	/**
 	 * @param int $groupId
@@ -950,11 +905,6 @@ class UserGroup
 		if ($roleLevel == RoleLevel::SCHEDULE_ADMIN)
 		{
 			$this->IsScheduleAdmin = true;
-		}
-		// Added by Cameron Stewart
-		if ($roleLevel == RoleLevel::SCHEDULER)
-		{
-			$this->IsScheduler = true;
 		}
 	}
 }

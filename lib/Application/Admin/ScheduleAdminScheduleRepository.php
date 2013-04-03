@@ -47,18 +47,7 @@ class ScheduleAdminScheduleRepository extends ScheduleRepository
 		{
 			return $schedules;
 		}
-		if ($this->user->IsScheduler)
-		{
-			return $schedules;
-		}
-		
-		//Added by Cameron Stewart
-		/*
-		if ($user->IsScheduler($schedule))
-		{
-			return $schedules;
-		}
-		*/
+
 		$user = $this->repo->LoadById($this->user->UserId);
 
 		$filteredList = array();
@@ -77,8 +66,8 @@ class ScheduleAdminScheduleRepository extends ScheduleRepository
 	public function Update(Schedule $schedule)
 	{
 		$user = $this->repo->LoadById($this->user->UserId);
-		// Changed by Cameron Stewart
-		if (!$user->IsScheduleAdminFor($schedule) && !$user->IsSchedulerFor($schedule))
+		
+		if (!$user->IsScheduleAdminFor($schedule))
 		{
 			// if we got to this point, the user does not have the ability to update the schedule
 			throw new Exception(sprintf('Schedule Update Failed. User %s does not have admin access to schedule %s.', $this->user->UserId, $schedule->GetId()));
@@ -90,16 +79,16 @@ class ScheduleAdminScheduleRepository extends ScheduleRepository
 	public function Add(Schedule $schedule, $copyLayoutFromScheduleId)
 	{
 		$user = $this->repo->LoadById($this->user->UserId);
-		// Changed by Cameron Stewart
-		if (!$user->IsInRole(RoleLevel::SCHEDULE_ADMIN) && !$user->IsInRole(RoleLevel::SCHEDULER))
+		
+		if (!$user->IsInRole(RoleLevel::SCHEDULE_ADMIN))
 		{
 			throw new Exception(sprintf('Schedule Add Failed. User %s does not have admin access.', $this->user->UserId));
 		}
 
 		foreach ($user->Groups() as $group)
 		{
-			// Changed by Cameron Stewart
-			if ($group->IsScheduleAdmin || $group->IsScheduler)
+	
+			if ($group->IsScheduleAdmin)
 			{
 				$schedule->SetAdminGroupId($group->GroupId);
 				break;

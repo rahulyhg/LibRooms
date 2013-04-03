@@ -103,7 +103,8 @@ class AutoCompletePage extends SecurePage
 	private function GetMyUsers($term)
 	{
 		$userSession = ServiceLocator::GetServer()->GetUserSession();
-		if ($userSession->IsAdmin)
+		//Modified by Cameron Stewart
+		if ($userSession->IsAdmin || $userSession->IsScheduler)
 		{
 			return $this->GetUsers($term);
 		}

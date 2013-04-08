@@ -37,14 +37,14 @@ html, body {
 #signout {
 	float: right;
 	padding-right: 10px;
-	color: #fff;
+	color: #c10036;
 	font-size: 11pt;
 	text-align: right;
 	vertical-align: middle;
 }
 
-#signout a {
-	color: #fff;
+#signout a, #signout a:hover, #signout a:visited {
+	color: #c10036;
 }
 
 img {

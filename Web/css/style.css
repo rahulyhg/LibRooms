@@ -37,14 +37,14 @@ html, body {
 #signout {
 	float: right;
 	padding-right: 10px;
-	color: #fff;
+	color: #c10036;
 	font-size: 11pt;
 	text-align: right;
 	vertical-align: middle;
 }
 
-#signout a {
-	color: #fff;
+#signout a, #signout a:hover, #signout a:visited {
+	color: #c10036;
 }
 
 img {
@@ -60,7 +60,7 @@ h1 {
 
 .textbox {
 	font-size: 12px;
-	color: #36648B;
+	color: #5e5d60;
 	padding: 2px 3px;
 	border: solid 1px #aaaaaa;
 }
@@ -158,15 +158,14 @@ div.error li {
 }
 
 div.page-footer {
-	color: #fafafa;
+	color: #5e5d60;
 	vertical-align: bottom;
 	width: 100%;
 	text-align: center;
 	height: 38px;
-	background-color: #e3f2ff;
-	background: url(../img/header-top.png) repeat;
+	background: #ffffff;
 	padding-top: 1px;
-	border-top: solid 1px #333333;
+	border-top: solid 2px #5e5d60;
 	font-size: 8pt;
 	font-weight: normal;
 }
@@ -176,7 +175,7 @@ div.push {
 }
 
 .page-footer a, .page-footer a:visited {
-	color: #fafafa;
+	color: #5e5d60;
 }
 
 .p-center {
@@ -480,7 +479,11 @@ legend {
 }
 
 a, a:visited {
-	color: #006295;
+	color: #00365a;
+}
+
+a:hover {
+	color: #c09b68;
 }
 
 a.page, a.page:visited {
@@ -523,7 +526,7 @@ div.clear {
 }
 
 .notification-row.alt {
-	background-color: #ced1c5;
+	background-color: #eeeeee;
 }
 
 div.notification-type {
@@ -542,7 +545,7 @@ div.notification-status {
 
 #help h2 {
 	padding: 2px;
-	background-color: #e8eef2;
+	background-color: #eeeeee;
 }
 
 #help h3 {

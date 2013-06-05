@@ -165,6 +165,10 @@ class RoleRestrictedPageDecorator extends SecureActionPageDecorator
 			{
 				$isAllowed = true;
 			}
+			if ($roleId == RoleLevel::SCHEDULER && $user->IsScheduler)
+			{
+				$isAllowed = true;
+			}
 		}
 
 		if (!$isAllowed)

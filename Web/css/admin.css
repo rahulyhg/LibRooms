@@ -23,7 +23,10 @@
 	padding: 5px;
 }
 .admin a {
-	color: #005B9A;
+	color: #00365a;
+}
+.admin a:hover {
+	color: #c09b68;
 }
 
 .admin .label {

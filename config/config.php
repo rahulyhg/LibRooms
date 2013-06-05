@@ -23,7 +23,7 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT);
  * Application configuration
  */
 $conf['settings']['server.timezone'] = 'America/Denver';       // look up here http://php.net/manual/en/timezones.php
-$conf['settings']['allow.self.registration'] = 'false';         // if users can register themselves
+$conf['settings']['allow.self.registration'] = 'true';         // if users can register themselves
 $conf['settings']['admin.email'] = 'bacchus@unm.edu';         // email address of admin user
 $conf['settings']['default.page.size'] = '50';                  // number of records per page
 $conf['settings']['enable.email'] = 'true';                     // global configuration to enable if any emails will be sent
@@ -44,11 +44,7 @@ $conf['settings']['name.format'] = '{first} {last}';     		// display format whe
 $conf['settings']['css.extension.file'] = ''; 			      	// full or relative url to an additional css file to include. this can be used to override the default style
 $conf['settings']['disable.password.reset'] = 'false'; 	      	// if the password reset functionality should be disabled
 $conf['settings']['home.url'] = 'http://libtaco-dev.unm.edu/schedule'; 	      					// the url to open when the logo is clicked
-<<<<<<< HEAD
 $conf['settings']['logout.url'] = 'http://libtaco-dev.unm.edu/schedule'; 
-=======
-$conf['settings']['logout.url'] = 'http://libtaco-dev.unm.edu/schedule';
->>>>>>> cam
 
 /**
  * ical integration configuration
@@ -113,7 +109,7 @@ $conf['settings']['phpmailer']['smtp.debug'] = 'false';
 /**
  * Plugin configuration.  For more on plugins, see readme_installation.html
  */
-$conf['settings']['plugins']['Authentication'] = '';
+$conf['settings']['plugins']['Authentication'] = 'Ldap';
 $conf['settings']['plugins']['Authorization'] = '';
 $conf['settings']['plugins']['Permission'] = '';
 $conf['settings']['plugins']['PostRegistration'] = '';
@@ -122,11 +118,7 @@ $conf['settings']['plugins']['PostReservation'] = '';
 /**
  * Installation settings
  */
-<<<<<<< HEAD
-$conf['settings']['install.password'] = '';
-=======
 $conf['settings']['install.password'] = '514a0106723c8';
->>>>>>> cam
 /**
  * Pages
  */

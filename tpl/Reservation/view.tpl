@@ -103,15 +103,6 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 							<span class="no-data">{translate key='None'}</span>
 						{/if}
 					</li>
-
-					<li>
-						<label>{translate key='ReservationDescription'}</label>
-						{if $Description neq ''}
-							<br/>{$Description|nl2br}
-						{else}
-							<span class="no-data">{translate key='None'}</span>
-						{/if}
-					</li>
 				{/if}
 		</div>
 

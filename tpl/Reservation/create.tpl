@@ -133,12 +133,6 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 			{textbox name="RESERVATION_TITLE" class="input" tabindex="100" value="ReservationTitle"}
             </label>
         </li>
-        <li class="rsv-box-l">
-            <label>{translate key="ReservationDescription"}<br/>
-                <textarea id="description" name="{FormKeys::DESCRIPTION}" class="input-area" rows="2" cols="52"
-                          tabindex="110">{$Description}</textarea>
-            </label>
-        </li>
 	{if $UploadsEnabled}
         <li>
             <label>{translate key=AttachFile}<br/>

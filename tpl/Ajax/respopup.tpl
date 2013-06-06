@@ -58,10 +58,6 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 		{if !$smarty.foreach.accessory_loop.last},{/if}
 	{/foreach}
 	</div>
-
-	{if !$hideDetails}
-	<div class="summary">{if $summary neq ''}{$summary|truncate:300:"..."|nl2br}{else}{translate key=NoDescriptionLabel}{/if}</div>
-	{/if}
 	<!-- {$ReservationId} -->
 </div>
 {else}

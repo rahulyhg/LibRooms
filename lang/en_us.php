@@ -218,7 +218,7 @@ class en_us extends Language
 		$strings['PasswordChangedSuccessfully'] = 'Your password has been changed successfully';
 		$strings['SignedInAs'] = 'Signed in as';
 		$strings['NotSignedIn'] = 'You are not signed in';
-		$strings['ReservationTitle'] = 'Title of reservation';
+		$strings['ReservationTitle'] = 'Notes';
 		$strings['ReservationDescription'] = 'Description of reservation';
 		$strings['ResourceList'] = 'Resources to be reserved';
 		$strings['Accessories'] = 'Accessories';

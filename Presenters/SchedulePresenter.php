@@ -27,6 +27,7 @@ require_once(ROOT_DIR . 'Domain/namespace.php');
 require_once(ROOT_DIR . 'Domain/Access/namespace.php');
 require_once(ROOT_DIR . 'Presenters/SchedulePageBuilder.php');
 require_once(ROOT_DIR . 'Presenters/ActionPresenter.php');
+require_once(ROOT_DIR . 'Controls/Dashboard/AnnouncementsControl.php');
 
 interface ISchedulePresenter {
 
@@ -89,6 +90,8 @@ class SchedulePresenter extends ActionPresenter implements ISchedulePresenter {
     public function PageLoad(UserSession $user)
     {
         $targetTimezone = $user->Timezone;
+		$announcement = new AnnouncementsControl(new SmartyPage());
+        $this->_page->AddItem($announcement);
 
         $showInaccessibleResources = $this->_page->ShowInaccessibleResources();
 

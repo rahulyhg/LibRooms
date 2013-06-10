@@ -20,7 +20,7 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 
 class Pages
 {
-	const DEFAULT_HOMEPAGE_ID = 1;
+	const DEFAULT_HOMEPAGE_ID = 2;
 
 	const ACTIVATION = 'activate.php';
 	const CALENDAR = 'calendar.php';

@@ -543,7 +543,7 @@ class en_us extends Language
 		$strings['Help'] = 'Help';
 		$strings['Administration'] = 'Administration';
 		$strings['About'] = 'About';
-		$strings['Bookings'] = 'Bookings';
+		$strings['Bookings'] = 'Reserve a Room';
 		$strings['Schedule'] = 'Schedule';
 		$strings['Reservations'] = 'Reservations';
 		$strings['Account'] = 'Account';

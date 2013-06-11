@@ -120,6 +120,8 @@ interface ISchedulePage extends IActionPage
 	 * @param string|ScheduleDirection Direction
 	 */
 	public function SetScheduleDirection($direction);
+        
+        function AddItem(DashboardItem $item);
 }
 
 class ScheduleDirection
@@ -162,6 +164,7 @@ class SchedulePage extends ActionPage implements ISchedulePage
 
 		$this->Set('SlotLabelFactory', $user->IsAdmin ? new AdminSlotLabelFactory() : new SlotLabelFactory());
 		$this->Set('DisplaySlotFactory', new DisplaySlotFactory());
+                $this->Set('items', $this->items);
 		if ($this->scheduleDirection == ScheduleDirection::horizontal)
 		{
 			$this->Display('schedule.tpl');
@@ -286,6 +289,11 @@ class SchedulePage extends ActionPage implements ISchedulePage
 		$this->scheduleDirection = $direction;
 		$this->Set('CookieName', 'schedule-direction-' . $this->GetVar('ScheduleId'));
 		$this->Set('CookieValue', $direction == ScheduleDirection::vertical ? ScheduleDirection::horizontal : ScheduleDirection::vertical);
+	}
+	
+	public function AddItem(DashboardItem $item)
+	{
+		$this->items[] = $item;
 	}
 }
 

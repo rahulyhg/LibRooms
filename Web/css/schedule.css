@@ -218,3 +218,9 @@ div.legend {
     *display: inline;
     margin: 0px 2px;
 }
+
+.schedSpan {
+    border: 1px solid black;
+    padding-left: 4px;
+    margin-right: 4px;
+}

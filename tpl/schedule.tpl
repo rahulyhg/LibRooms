@@ -64,25 +64,21 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 {* End slot display formatting *}
 
 {block name="header"}
-{include file='globalheader.tpl' cssFiles='css/schedule.css,css/jquery.qtip.min.css'}
+{include file='globalheader.tpl' cssFiles='css/schedule.css,css/jquery.qtip.min.css,css/dashboard.css'}
 {/block}
 
-{block name="actions"}
-<div>
-	{*translate key=Actions*}
-    <a href="#" id="make_default"
-       style="display:none;">{html_image src="star_boxed_full.png" altKey="MakeDefaultSchedule"}</a>
-    <a href="#" id="rotate_schedule">{html_image src="arrow-turn.png" altKey="FlipSchedule"}</a>
-</div>
+{block name="announcements"}
+<ul id="dashboardList">
+{foreach from=$items item=dashboardItem}
+    <li>{$dashboardItem->PageLoad()}</li>
+{/foreach}
+</ul>
 {/block}
-
-<div id="defaultSetMessage" class="success hidden">
-{translate key=DefaultScheduleSet}
-</div>
 
 {block name="schedule_control"}
 <div>
     <div class="schedule_title">
+        <span class="schedSpan">
         <span>{$ScheduleName}</span>
 		{if $Schedules|@count gt 0}
             <ul class="schedule_drop">
@@ -95,6 +91,7 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 					{/foreach}
                 </ul>
             </ul>
+        </span>
 		{/if}
         <a href="#" id="calendar_toggle">{html_image src="calendar.png" altKey="ShowHideNavigation"}</a>
     </div>
@@ -128,7 +125,6 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
     <div class="legend unreservable">{translate key=Unreservable}</div>
     <div class="legend reserved">{translate key=Reserved}</div>
     <div class="legend reserved mine">{translate key=MyReservation}</div>
-    <div class="legend reserved pending">{translate key=Pending}</div>
     <div class="legend pasttime">{translate key=Past}</div>
     <div class="legend restricted">{translate key=Restricted}</div>
 </div>

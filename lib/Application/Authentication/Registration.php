@@ -77,6 +77,10 @@ class Registration implements IRegistration
 		}
 
 		$userId = $this->_userRepository->Add($user);
+                
+                // Auto-add new users to group allowed to schedule any public room for self
+                $groupId = 8;
+                ServiceLocator::GetDatabase()->ExecuteInsert(new AddUserGroupCommand($userId, $groupId));
 		$this->AutoAssignPermissions($userId);
 
 		return $user;

@@ -177,12 +177,12 @@ class ManageUsersPresenter extends ActionPresenter implements IManageUsersPresen
 		if ($this->page->GetUserId() != null)
 		{
 			$userList = $this->userRepository->GetList(1, 1, null, null,
-													   new SqlFilterEquals(ColumnNames::USER_ID, $this->page->GetUserId()));
+			new SqlFilterEquals(ColumnNames::USER_ID, $this->page->GetUserId()));
 		}
 		else
 		{
 			$userList = $this->userRepository->GetList($this->page->GetPageNumber(), $this->page->GetPageSize(), null,
-													   null, null, $this->page->GetFilterStatusId());
+			null, null, $this->page->GetFilterStatusId());
 		}
 
 		$this->page->BindUsers($userList->Results());

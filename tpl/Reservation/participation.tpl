@@ -20,12 +20,14 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 	<ul class="no-style">
 		<li>
 			<label>{translate key="ParticipantList"}<br/>
-				{translate key=Add} <input type="text" id="participantAutocomplete" class="input" style="width:250px;"/>
+				{translate key=Add} <input type="text" id="participantAutocomplete" class="input" style="width:380px;"/>
+                                <!--  Removed because paging through 40K records is not user-friendly
 				or
 				<button id="promptForParticipants" type="button" class="button" style="display:inline">
 					<img src="img/user-plus.png"/>
 				{translate key='AllUsers'}
 				</button>
+                                -->
 			</label>
 
 			<div id="participantList">
@@ -35,12 +37,14 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 		</li>
 		<li>
 			<label>{translate key="InvitationList"}<br/>
-				{translate key=Add} <input type="text" id="inviteeAutocomplete" class="input" style="width:250px;"/>
+				{translate key=Add} <input type="text" id="inviteeAutocomplete" class="input" style="width:380px;"/>
+                                <!--  Removed because paging through 40K records is not user-friendly
 				or
 				<button id="promptForInvitees" type="button" class="button" style="display:inline">
 					{html_image src="user-plus.png"}
 				{translate key='AllUsers'}
 				</button>
+                                -->
 			</label>
 
 			<div id="inviteeList">

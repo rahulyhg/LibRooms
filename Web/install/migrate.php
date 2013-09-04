@@ -515,7 +515,7 @@ class MigrationPresenter
             ru.memberid
             FROM reservations r INNER JOIN reservation_users ru ON r.resid = ru.resid AND owner = 1');
 
-		$getExisting = new AdHocCommand('select legacyid from reservation_series');
+		$getExisting = new AdHocCommand('select legacyid from reservation_series union select legacyid from blackout_series');
 		$reader = $currentDatabase->Query($getExisting);
 
 		$knownIds = array();

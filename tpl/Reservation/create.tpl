@@ -39,12 +39,14 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 		{/if}
         </li>
         <li style="display:none;" id="changeUsers">
-            <input type="text" id="changeUserAutocomplete" class="input" style="width:250px;"/>
+            Change Owner <input type="text" id="changeUserAutocomplete" class="input" style="width:250px;"/>
+            <!-- Removed because listing 40K choices is not user friendly
             |
             <button id="promptForChangeUsers" type="button" class="button" style="display:inline">
                 <img src="img/users.png"/>
 			{translate key='AllUsers'}
             </button>
+            -->
         </li>
     </ul>
     <ul class="no-style">

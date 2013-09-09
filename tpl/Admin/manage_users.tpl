@@ -361,7 +361,7 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
     function getUserInfo() {
         var netid = $('[id=addUsername]').val();
         $.ajax({
-                url: ""
+                url: "{$Path}Info/getUserInfo.php?username="+netid
         });
     }
 </script>

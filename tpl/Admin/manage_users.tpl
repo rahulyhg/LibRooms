@@ -182,8 +182,8 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
                 <div style="clear:both;"></div>
             </div>
 
-            <button type="button"
-                    class="button save">{html_image src="disk-black.png"} {translate key='AddUser'}</button>
+            <button type="button" class="button save">{html_image src="disk-black.png"} {translate key='AddUser'}</button>
+            <button type="button" class="button search" onclick="getUserInfo();">{html_image src="slash.png"} Search LDAP</button>
             <button type="button" class="button clear">{html_image src="slash.png"} {translate key='Cancel'}</button>
         </form>
     </div>
@@ -358,5 +358,11 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 	{/foreach}
 
     });
+    function getUserInfo() {
+        var netid = $('[id=addUsername]').val();
+        $.ajax({
+                url: ""
+        });
+    }
 </script>
 {include file='globalfooter.tpl'}

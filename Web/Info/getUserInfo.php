@@ -13,14 +13,20 @@ if (isset($_REQUEST["username"]) && $_REQUEST["username"] != "") {
     
     $ldap = new Ldap2Wrapper($options);
     
+    $ldap->Connect();
+    
  //   $user_info = $ldap->PopulateUser($username);
     
     $user_info = $ldap->GetUserInfo($username);
     
  //   print var_dump(get_defined_vars());
  //   print "end vars";
-    print var_dump($user_info);
+
+    //var_dump($options);
+    //print_r($options);
+    var_dump($user_info);
+    //print_r($user_info);
     
-   
+    
 }
 ?>

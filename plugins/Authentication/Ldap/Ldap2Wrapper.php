@@ -110,6 +110,8 @@ class Ldap2Wrapper
 
 		Log::Debug('Searching ldap for user %s', $username);
 		$searchResult = $this->ldap->search(null, $filter, $options);
+                
+                var_dump($searchResult);
 
 		if (Net_LDAP2::isError($searchResult))
 		{

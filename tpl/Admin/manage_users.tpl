@@ -368,16 +368,18 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
         });
     }
     function useUserInfo(userData) {
+        userData = userData.substring(userData.indexOf('"')+1);
+        userData = userData.substring(0, userData.indexOf('"'));
         if (userData.indexOf('||') >= 0) {
-            userData = userData.substring(userData.indexOf('"')+1);
-            userData = userData.substring(0, userData.indexOf('"'));
             var userDataSplit = userData.split('||');
             $.each(userDataSplit, function(key, value) {
                 var nameVal = value.split('|');
                 $('#'+nameVal[0]).val(nameVal[1]);
             });
+        } else if (userData.indexOf('THERE IS NO USER') >= 0) {
+          alert(userData);
         } else {
-          alert(userData+'<br>'+userData[0]+' '+userData[1]);
+            alert('LDAP search encountered an unknown difficulty\nIf the problem persists please contact an Applications Team member.');
         }
      }
 </script>

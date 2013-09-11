@@ -19,7 +19,7 @@ if (isset($_REQUEST["username"]) && $_REQUEST["username"] != "") {
     
     $search_ldap_user = $ldap->GetLdapUser($username);
     
-    $user_data = array(lastname => $search_ldap_user->GetLastName(), firstname => $search_ldap_user->GetFirstName(), email => $search_ldap_user->GetEmail(), phone => $search_ldap_user->GetPhone(), title => $search_ldap_user->GetTitle());
+    $user_data = "addLname|{$search_ldap_user->GetLastName()}||addFname|{$search_ldap_user->GetFirstName()}||addEmail|{$search_ldap_user->GetEmail()}||addPassword|" . strval(rand(10000000,100000000));
     
     var_dump($user_data);
 

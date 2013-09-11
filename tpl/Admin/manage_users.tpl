@@ -360,9 +360,25 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
     });
     function getUserInfo() {
         var netid = $('[id=addUsername]').val();
-        $.ajax({
-                url: "{$Path}Info/getUserInfo.php?username="+netid
+        var newUserData = $.ajax({
+                url: "{$Path}Info/getUserInfo.php?username="+netid,
+                success: function(data) {
+                    useUserInfo(data);
+                }
         });
     }
+    function useUserInfo(userData) {
+        if (userData.indexOf('||') >= 0) {
+            userData = userData.substring(userData.indexOf('"')+1);
+            userData = userData.substring(0, userData.indexOf('"'));
+            var userDataSplit = userData.split('||');
+            $.each(userDataSplit, function(key, value) {
+                var nameVal = value.split('|');
+                $('#'+nameVal[0]).val(nameVal[1]);
+            });
+        } else {
+          alert(userData+'<br>'+userData[0]+' '+userData[1]);
+        }
+     }
 </script>
 {include file='globalfooter.tpl'}

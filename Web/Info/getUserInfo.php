@@ -15,17 +15,14 @@ if (isset($_REQUEST["username"]) && $_REQUEST["username"] != "") {
     
     $ldap->Connect();
     
- //   $user_info = $ldap->PopulateUser($username);
+    $ldap->PopulateNonAuthenticatedLDAPUser($username);
     
-    $user_info = $ldap->GetUserInfo($username);
+    $search_ldap_user = $ldap->GetLdapUser($username);
     
- //   print var_dump(get_defined_vars());
- //   print "end vars";
+    $user_data = array(lastname => $search_ldap_user->GetLastName(), firstname => $search_ldap_user->GetFirstName(), email => $search_ldap_user->GetEmail(), phone => $search_ldap_user->GetPhone(), title => $search_ldap_user->GetTitle());
+    
+    var_dump($user_data);
 
-    //var_dump($options);
-    //print_r($options);
-    var_dump($user_info);
-    //print_r($user_info);
     
     
 }

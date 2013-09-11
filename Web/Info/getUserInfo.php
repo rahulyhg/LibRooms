@@ -17,13 +17,19 @@ if (isset($_REQUEST["username"]) && $_REQUEST["username"] != "") {
     
     $ldap->PopulateNonAuthenticatedLDAPUser($username);
     
-    $search_ldap_user = $ldap->GetLdapUser($username);
+    if ($ldap->GetLdapUser($username) === NULL) {
+        $test = "THERE IS NO USER BY THAT NAME";
+        var_dump($test);
+    }
+    else
+    {
     
-    $user_data = "addLname|{$search_ldap_user->GetLastName()}||addFname|{$search_ldap_user->GetFirstName()}||addEmail|{$search_ldap_user->GetEmail()}||addPassword|" . strval(rand(10000000,100000000));
+        $search_ldap_user = $ldap->GetLdapUser($username);
     
-    var_dump($user_data);
-
+        $user_data = "addLname|{$search_ldap_user->GetLastName()}||addFname|{$search_ldap_user->GetFirstName()}||addEmail|{$search_ldap_user->GetEmail()}||addPassword|" . strval(rand(10000000,100000000));
     
+        var_dump($user_data);
+    }
     
 }
 ?>

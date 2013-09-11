@@ -314,6 +314,8 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 <script type="text/javascript">
     $(document).ready(function ()
     {
+        
+        $("#addUserForm")[0].reset();
         var actions = {
             activate:'{ManageUsersActions::Activate}',
             deactivate:'{ManageUsersActions::Deactivate}',
@@ -371,11 +373,20 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
         userData = userData.substring(userData.indexOf('"')+1);
         userData = userData.substring(0, userData.indexOf('"'));
         if (userData.indexOf('||') >= 0) {
+            
             var userDataSplit = userData.split('||');
             $.each(userDataSplit, function(key, value) {
                 var nameVal = value.split('|');
                 $('#'+nameVal[0]).val(nameVal[1]);
             });
+            if (confirm('Do you want to add this user?')) {
+                $('#addUserForm').submit();
+              
+            }
+            else {
+                // Do Nothing, clear fields.
+                $("#addUserForm")[0].reset();
+            }
         } else if (userData.indexOf('THERE IS NO USER') >= 0) {
           alert(userData);
         } else {

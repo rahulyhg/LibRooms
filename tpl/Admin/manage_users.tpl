@@ -155,7 +155,7 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
                 <div style="display: table-cell;">
                     <ul>
                         <li>{translate key="Password"}</li>
-                        <li>{textbox name="PASSWORD" class="required textbox" size="40" id="addPassword"}</li>
+                        <li>{textbox name="PASSWORD" class="required textbox" size="40" id="addPassword" type="password"}</li>
                     </ul>
                 </div>
                 <div style="display: table-cell;">

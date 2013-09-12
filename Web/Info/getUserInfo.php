@@ -1,6 +1,13 @@
 <?php
 
-if (isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER'] != "" && (substr($_SERVER['HTTP_REFERER'], strpos($_SERVER['HTTP_REFERER'], '//')+2, strpos($_SERVER['HTTP_REFERER'], '/admin')-8) == $_SERVER['SERVER_NAME'])) {
+if (isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER'] != "") {
+    $referer = substr($_SERVER['HTTP_REFERER'], strpos($_SERVER['HTTP_REFERER'], '//')+2);
+    $referer = substr($referer, 0, strpos($referer, '/'));
+} else {
+    $referer = "";
+}
+
+if ($referer == $_SERVER['SERVER_NAME']) {
     
 
     define('ROOT_DIR', '../../');
@@ -12,8 +19,6 @@ if (isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER'] != "" && (substr
     if (isset($_REQUEST["username"]) && $_REQUEST["username"] != "") {
         $username = $_REQUEST["username"];
         $options = new LdapOptions();
-
-        $authorization = new Net_LDAP2();
 
         $ldap = new Ldap2Wrapper($options);
 

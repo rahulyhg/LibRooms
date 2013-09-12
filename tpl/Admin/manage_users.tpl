@@ -183,7 +183,7 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
             </div>
 
             <button type="button" class="button save">{html_image src="disk-black.png"} {translate key='AddUser'}</button>
-            <button type="button" class="button search" onclick="getUserInfo();">{html_image src="slash.png"} Search LDAP</button>
+            <button type="button" class="button ldapsearch">{html_image src="slash.png"} Search LDAP</button>
             <button type="button" class="button clear">{html_image src="slash.png"} {translate key='Cancel'}</button>
         </form>
     </div>
@@ -315,7 +315,11 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
     $(document).ready(function ()
     {
         
+       
+        // Clear Add User Form.  If you save credentials for this app, it randomly fills
+        // Input boxes in the Add User section with your data
         $("#addUserForm")[0].reset();
+        
         var actions = {
             activate:'{ManageUsersActions::Activate}',
             deactivate:'{ManageUsersActions::Deactivate}',
@@ -336,6 +340,7 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
             saveRedirect:'{$smarty.server.SCRIPT_NAME}',
             selectUserUrl:'{$smarty.server.SCRIPT_NAME}?uid=',
             filterUrl:'{$smarty.server.SCRIPT_NAME}?{QueryStringKeys::ACCOUNT_STATUS}=',
+            getUserInfoUrl:'{$Path}Info/getUserInfo.php?username=',
             actions:actions,
             manageReservationsUrl:'{$ManageReservationsUrl}'
         };
@@ -360,38 +365,5 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 	{/foreach}
 
     });
-    function getUserInfo() {
-        var netid = $('[id=addUsername]').val();
-        var newUserData = $.ajax({
-                url: "{$Path}Info/getUserInfo.php?username="+netid,
-                success: function(data) {
-                    useUserInfo(data);
-                }
-        });
-    }
-    function useUserInfo(userData) {
-        userData = userData.substring(userData.indexOf('"')+1);
-        userData = userData.substring(0, userData.indexOf('"'));
-        if (userData.indexOf('||') >= 0) {
-            
-            var userDataSplit = userData.split('||');
-            $.each(userDataSplit, function(key, value) {
-                var nameVal = value.split('|');
-                $('#'+nameVal[0]).val(nameVal[1]);
-            });
-            if (confirm('Do you want to add this user?')) {
-                $('#addUserForm').submit();
-              
-            }
-            else {
-                // Do Nothing, clear fields.
-                $("#addUserForm")[0].reset();
-            }
-        } else if (userData.indexOf('THERE IS NO USER') >= 0) {
-          alert(userData);
-        } else {
-            alert('LDAP search encountered an unknown difficulty\nIf the problem persists please contact an Applications Team member.');
-        }
-     }
 </script>
 {include file='globalfooter.tpl'}

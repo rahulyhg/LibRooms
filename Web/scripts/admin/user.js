@@ -184,12 +184,18 @@ function UserManagement(opts)
            
         function getUserInfo() {
             var netid = $('[id=addUsername]').val();
-            var newUserData = $.ajax({
-                url: options.getUserInfoUrl+netid,
-                success: function(data) {
-                    useUserInfo(data);
-                }     
-            });
+            if (!netid) {
+                alert("In order to Search LDAP,you must enter a \nUNM NetId in the \'Username'\ field.")
+            }
+            else {
+                var netid = $('[id=addUsername]').val();
+                var newUserData = $.ajax({
+                    url: options.getUserInfoUrl+netid,
+                    success: function(data) {
+                        useUserInfo(data);
+                    }     
+                });
+            }
         }
         
         function useUserInfo(userData) {

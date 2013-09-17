@@ -76,7 +76,7 @@ function UserManagement(opts)
                         success: function(data) {
                             alert("User added to database");
                             $('#changeUserAutocomplete').val($('#addUsername').val());
-                            $('#changeUserAutocomplete').focus().keyup();
+                            $('#changeUserAutocomplete').focus().keydown();
                         }     
                     });
                 } else {

@@ -218,8 +218,8 @@ function UserManagement(opts)
                     //$("#addUserForm")[0].reset();
                     elements.addUserForm[0].reset();
                 }
-            } else if (userData.indexOf('THERE IS NO USER') >= 0) {
-                alert(userData);
+            } else if (userData.indexOf('ERROR') >= 0) {
+                alert(userData.substring(userData.indexOf('ERROR')+6));
             } else {
                 alert('LDAP search encountered an unknown difficulty\nIf the problem persists please contact an Applications Team member.');
             }

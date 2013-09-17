@@ -27,19 +27,23 @@ if ($referer == $_SERVER['SERVER_NAME']) {
         $ldap->PopulateNonAuthenticatedLDAPUser($username);
 
         if ($ldap->GetLdapUser($username) === NULL) {
-            $test = "THERE IS NO USER BY THAT NAME";
-            var_dump($test);
+            $user_data = "ERROR: THERE IS NO USER BY THAT NAME";
         }
         else
         {
 
             $search_ldap_user = $ldap->GetLdapUser($username);
+            $lname = $search_ldap_user->GetLastName();
+            if (isset($lname) && $lname != "") {
 
-            $user_data = "addLname|{$search_ldap_user->GetLastName()}||addFname|{$search_ldap_user->GetFirstName()}||addEmail|{$search_ldap_user->GetEmail()}||addPassword|" . strval(rand(10000000,100000000));
+                $user_data = "addLname|{$search_ldap_user->GetLastName()}||addFname|{$search_ldap_user->GetFirstName()}||addEmail|{$search_ldap_user->GetEmail()}||addPassword|" . strval(rand(10000000,100000000));
 
-            var_dump($user_data);
+            } else {
+                $user_data = "ERROR: MULTIPLE ENTRIES FOUND. \n PLEASE SEARCH ON A FULL NETID.";
+            }
         }
 
     }
+                var_dump($user_data);
 }
 ?>

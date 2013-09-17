@@ -17,7 +17,7 @@ You should have received a copy of the GNU General Public License
 along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 *}
 {block name="header"}
-{include file='globalheader.tpl' cssFiles='css/reservation.css,css/jquery.qtip.min.css'}
+{include file='globalheader.tpl' cssFiles='css/reservation.css,css/jquery.qtip.min.css,css/admin.css'}
 {/block}
 
 <div id="reservationbox">
@@ -224,6 +224,81 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 {/if}
 </form>
 
+
+<div class="admin" style="margin-top:30px;">
+    <div class="title">
+	{translate key=AddUser}
+    </div>
+    <div>
+        <ul>
+		{async_validator id="addUserEmailformat" key="ValidEmailRequired"}
+			{async_validator id="addUserUniqueemail" key="UniqueEmailRequired"}
+			{async_validator id="addUserUsername" key="UniqueUsernameRequired"}
+			{async_validator id="addAttributeValidator" key=""}
+        </ul>
+        <form id="addUserForm" method="post">
+            <div style="display: table-row">
+                <div style="display: table-cell;">
+                    <ul>
+                        <li>{translate key="Username"}</li>
+                        <li>{textbox name="USERNAME" class="required textbox" size="40" id="addUsername"}</li>
+                    </ul>
+                </div>
+                <div style="display: table-cell;">
+                    <ul>
+                        <li>{translate key="Email"}</li>
+                        <li>{textbox name="EMAIL" class="required textbox" size="40" id="addEmail"}</li>
+                    </ul>
+                </div>
+                <div style="display: table-cell;">
+                    <ul>
+                        <li>{translate key="FirstName"}</li>
+                        <li>{textbox name="FIRST_NAME" class="required textbox" size="40" id="addFname"}</li>
+                    </ul>
+                </div>
+                <div style="display: table-cell;">
+                    <ul>
+                        <li>{translate key="LastName"}</li>
+                        <li>{textbox name="LAST_NAME" class="required textbox" size="40" id="addLname"}</li>
+                    </ul>
+                </div>
+            </div>
+            <div style="display: none">
+                <div style="display: table-cell;">
+                    <ul>
+                        <li>{translate key="Timezone"}</li>
+                        <li>
+                            <select {formname key='TIMEZONE'} class="textbox">
+				<option value="America/Denver">America/Denver</option>
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+                <div style="display: none;">
+                    <ul>
+                        <li>{translate key="Password"}</li>
+                        <li>{textbox name="PASSWORD" class="required textbox" size="40" id="addPassword" type="password"}</li>
+                    </ul>
+                </div>
+                <div style="display: none;">
+                    <ul>
+                        <li>{translate key="Group"}</li>
+                        <li>
+                            <select {formname key='GROUP_ID'} class="textbox">
+                                <option value="">{translate key=None}</option>
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <button type="button" class="button save">{html_image src="disk-black.png"} {translate key='AddUser'}</button>
+            <button type="button" class="button ldapsearch">{html_image src="slash.png"} Search LDAP</button>
+            <button type="button" class="button clear">{html_image src="slash.png"} {translate key='Cancel'}</button>
+        </form>
+    </div>
+</div>
+
 <div id="dialogAddResources" class="dialog" title="{translate key=AddResources}" style="display:none;">
 
 {foreach from=$AvailableResources item=resource}
@@ -302,11 +377,25 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 <script type="text/javascript" src="scripts/autocomplete.js"></script>
 <script type="text/javascript" src="scripts/force-numeric.js"></script>
 <script type="text/javascript" src="scripts/reservation-reminder.js"></script>
+{if $CanChangeUser}
+    <script type="text/javascript" src="{$Path}scripts/admin/ldapUser.js"></script>
+{/if}
+
+
 
 <script type="text/javascript">
 
     $(document).ready(function ()
     {
+
+        var userOptions = {
+            getUserInfoUrl:'{$Path}Info/getUserInfo.php?username=',
+            addUserSubmitUrl:'{$Path}/admin/manage_users.php'
+        };
+
+        var userManagement = new UserManagement(userOptions);
+        userManagement.init();
+        
         var scopeOptions = {
             instance:'{SeriesUpdateScope::ThisInstance}',
             full:'{SeriesUpdateScope::FullSeries}',
@@ -372,7 +461,6 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
             return false;
         });
         $('#description').TextAreaExpander();
-
 
     });
 </script>

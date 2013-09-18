@@ -34,12 +34,13 @@ if ($referer == $_SERVER['SERVER_NAME']) {
 
             $search_ldap_user = $ldap->GetLdapUser($username);
             $lname = $search_ldap_user->GetLastName();
-            if (isset($lname) && $lname != "") {
+            $fname = $search_ldap_user->GetFirstName();
+            if (isset($lname) && $lname != "" && isset($fname) && $fname != "") {
 
                 $user_data = "addLname|{$search_ldap_user->GetLastName()}||addFname|{$search_ldap_user->GetFirstName()}||addEmail|{$search_ldap_user->GetEmail()}||addPassword|" . strval(rand(10000000,100000000));
 
             } else {
-                $user_data = "ERROR: MULTIPLE ENTRIES FOUND. \n PLEASE SEARCH ON A FULL NETID.";
+                $user_data = "ERROR: NetID '$username' is inactive. \n NetID must be active to create an account.";
             }
         }
 

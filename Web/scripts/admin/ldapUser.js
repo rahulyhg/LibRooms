@@ -57,18 +57,14 @@ function LdapUserManagement(opts)
                                 $('#changeUserAutocomplete').val($('#addUsername').val());
                                 $('#changeUserAutocomplete').focus().keydown();
                             }
-                            $("#addUserForm")[0].reset();
                         }     
                     });
-                } else {
-                    // Do Nothing, clear fields.
-                    //$("#addUserForm")[0].reset();
-                    elements.addUserForm[0].reset();
                 }
             } else if (userData.indexOf('ERROR') >= 0) {
                 alert(userData.substring(userData.indexOf('ERROR')+6));
             } else {
                 alert('LDAP search encountered an unknown difficulty\nIf the problem persists please contact an Applications Team member.');
             }
+            $("#addUserForm")[0].reset();
         }
 }

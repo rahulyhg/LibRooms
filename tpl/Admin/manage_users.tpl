@@ -308,6 +308,7 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 
 <script type="text/javascript" src="{$Path}scripts/admin/edit.js"></script>
 <script type="text/javascript" src="{$Path}scripts/autocomplete.js"></script>
+<script type="text/javascript" src="{$Path}scripts/admin/ldapUser.js"></script>
 <script type="text/javascript" src="{$Path}scripts/admin/user.js"></script>
 <script type="text/javascript" src="{$Path}scripts/js/jquery.form-3.09.min.js"></script>
 
@@ -340,13 +341,20 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
             saveRedirect:'{$smarty.server.SCRIPT_NAME}',
             selectUserUrl:'{$smarty.server.SCRIPT_NAME}?uid=',
             filterUrl:'{$smarty.server.SCRIPT_NAME}?{QueryStringKeys::ACCOUNT_STATUS}=',
-            getUserInfoUrl:'{$Path}Info/getUserInfo.php?username=',
             actions:actions,
             manageReservationsUrl:'{$ManageReservationsUrl}'
         };
 
+        var ldapUserOptions = {
+            getUserInfoUrl:'{$Path}Info/getUserInfo.php?username=',
+            addUserSubmitUrl:'{$Path}/admin/manage_users.php'
+        };
+
         var userManagement = new UserManagement(userOptions);
         userManagement.init();
+
+        var ldapUserManagement = new LdapUserManagement(ldapUserOptions);
+        ldapUserManagement.init();
 
 	{foreach from=$users item=user}
         var user = {

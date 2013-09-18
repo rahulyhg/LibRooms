@@ -1,4 +1,4 @@
-function UserManagement(opts)
+function LdapUserManagement(opts)
 {
 	var options = opts;
 
@@ -8,34 +8,12 @@ function UserManagement(opts)
 		addUserForm:$('#addUserForm'),
 	};
 
-	var users = {};
-
-	UserManagement.prototype.init = function ()
+	LdapUserManagement.prototype.init = function ()
 	{
-
-		$(".save").click(function ()
-		{
-			$(this).closest('form').submit();
-		});
                 $('.ldapsearch').click(function () 
                 {
                         getUserInfo();
                 });
-
-		var hideDialog = function (dialogElement)
-		{
-			dialogElement.dialog('close');
-		};
-
-		var error = function (errorText)
-		{
-			alert(errorText);
-		};
-	};
-
-	UserManagement.prototype.addUser = function (user)
-	{
-		users[user.id] = user;
 	};
 
 	var getSubmitCallback = function (action)
@@ -79,6 +57,7 @@ function UserManagement(opts)
                                 $('#changeUserAutocomplete').val($('#addUsername').val());
                                 $('#changeUserAutocomplete').focus().keydown();
                             }
+                            $("#addUserForm")[0].reset();
                         }     
                     });
                 } else {
@@ -92,22 +71,4 @@ function UserManagement(opts)
                 alert('LDAP search encountered an unknown difficulty\nIf the problem persists please contact an Applications Team member.');
             }
         }
-
-	var changeUserInfo = function ()
-	{
-		var user = getActiveUser();
-
-		ClearAsyncErrors(elements.userDialog);
-
-		$('#username').val(user.username);
-		$('#fname').val(user.first);
-		$('#lname').val(user.last);
-		$('#email').val(user.email);
-		$('#timezone').val(user.timezone);
-		$('#phone').val(user.phone);
-		$('#organization').val(user.organization);
-		$('#position').val(user.position);
-
-		elements.userDialog.dialog('open');
-	};
 }

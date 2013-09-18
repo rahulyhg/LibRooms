@@ -389,13 +389,13 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
     $(document).ready(function ()
     {
         {if $CanViewAdmin or $CanViewScheduleAdmin}
-        var userOptions = {
+        var ldapUserOptions = {
             getUserInfoUrl:'{$Path}Info/getUserInfo.php?username=',
             addUserSubmitUrl:'{$Path}/admin/manage_users.php'
         };
         
-        var userManagement = new UserManagement(userOptions);
-        userManagement.init();
+        var ldapUserManagement = new LdapUserManagement(ldapUserOptions);
+        ldapUserManagement.init();
         {/if}
         
         var scopeOptions = {

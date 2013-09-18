@@ -75,8 +75,10 @@ function UserManagement(opts)
                         data: form.serialize(),
                         success: function(data) {
                             alert("User added to database");
-                            $('#changeUserAutocomplete').val($('#addUsername').val());
-                            $('#changeUserAutocomplete').focus().keydown();
+                            if ($('#changeUserAutocomplete').length) {
+                                $('#changeUserAutocomplete').val($('#addUsername').val());
+                                $('#changeUserAutocomplete').focus().keydown();
+                            }
                         }     
                     });
                 } else {

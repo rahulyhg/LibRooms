@@ -43,7 +43,9 @@ function LdapUserManagement(opts)
                     var nameVal = value.split('|');
                     $('#'+nameVal[0]).val(nameVal[1]);
                 });
-                if (confirm('Do you want to add this user?')) {
+                if (confirm('Do you want to add this user?\n\tFirst name:\t' + $('#addFname').val()
+                    + '\n\tLast name:\t' + $('#addLname').val() + '\n\tNetID:\t\t' + $('#addUsername').val()
+                     + '\n\tEmail:\t\t' + $('#addEmail').val())) {
                     var netid = $('#addUsername').val();
                     var form = $('[id=addUserForm]');
                     var newUserData = $.ajax({

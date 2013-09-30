@@ -244,19 +244,19 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
                         <li>{textbox name="USERNAME" class="required textbox" size="40" id="addUsername"}</li>
                     </ul>
                 </div>
-                <div style="display: table-cell;">
+                <div style="display: none;">
                     <ul>
                         <li>{translate key="Email"}</li>
                         <li>{textbox name="EMAIL" class="required textbox" size="40" id="addEmail"}</li>
                     </ul>
                 </div>
-                <div style="display: table-cell;">
+                <div style="display: none;">
                     <ul>
                         <li>{translate key="FirstName"}</li>
                         <li>{textbox name="FIRST_NAME" class="required textbox" size="40" id="addFname"}</li>
                     </ul>
                 </div>
-                <div style="display: table-cell;">
+                <div style="display: none;">
                     <ul>
                         <li>{translate key="LastName"}</li>
                         <li>{textbox name="LAST_NAME" class="required textbox" size="40" id="addLname"}</li>
@@ -292,9 +292,7 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
                 </div>
             </div>
 
-            <button type="button" class="button save">{html_image src="disk-black.png"} {translate key='AddUser'}</button>
-            <button type="button" class="button ldapsearch">{html_image src="slash.png"} Search LDAP</button>
-            <button type="button" class="button clear">{html_image src="slash.png"} {translate key='Cancel'}</button>
+            <button type="button" class="button ldapsearch">{html_image src="search.png"} Search LDAP</button>
         </form>
     </div>
 </div>

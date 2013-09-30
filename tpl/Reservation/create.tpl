@@ -391,7 +391,7 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
         {if $CanViewAdmin or $CanViewScheduleAdmin}
         var ldapUserOptions = {
             getUserInfoUrl:'{$Path}Info/getUserInfo.php?username=',
-            addUserSubmitUrl:'{$Path}/admin/manage_users.php'
+            addUserSubmitUrl:'{$Path}/schedule/Web/admin/manage_users.php'
         };
         
         var ldapUserManagement = new LdapUserManagement(ldapUserOptions);

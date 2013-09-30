@@ -44,8 +44,7 @@ function LdapUserManagement(opts)
                     $('#'+nameVal[0]).val(nameVal[1]);
                 });
                 if (confirm('Do you want to add this user?')) {
-                    //$('#addUserForm').submit();
-                  //  elements.addUserForm.submit();
+                    var netid = $('#addUsername').val();
                     var form = $('[id=addUserForm]');
                     var newUserData = $.ajax({
                         type: "POST",
@@ -54,7 +53,7 @@ function LdapUserManagement(opts)
                         success: function(data) {
                             alert("User added to database");
                             if ($('#changeUserAutocomplete').length) {
-                                $('#changeUserAutocomplete').val($('#addUsername').val());
+                                $('#changeUserAutocomplete').val(netid);
                                 $('#changeUserAutocomplete').focus().keydown();
                             }
                         }     

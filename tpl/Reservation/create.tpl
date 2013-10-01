@@ -292,7 +292,7 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
                 </div>
             </div>
 
-            <button type="button" class="button ldapsearch">{html_image src="search.png"} Search LDAP</button>
+            <button type="button" class="button ldapsearch">{html_image src="search.png"} {translate key='SearchNetId'}</button>
         </form>
     </div>
 </div>

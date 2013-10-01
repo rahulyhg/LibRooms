@@ -18,6 +18,7 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 *}
 {include file='globalheader.tpl' cssFiles='css/admin.css'}
 
+
 <h1>{translate key=ManageUsers}</h1>
 
 <div style="padding: 10px 0px;">
@@ -182,8 +183,8 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
                 <div style="clear:both;"></div>
             </div>
 
-            <button type="button" class="button save">{html_image src="disk-black.png"} {translate key='AddUser'}</button>
-            <button type="button" class="button ldapsearch">{html_image src="slash.png"} Search LDAP</button>
+            <button type="button" class="button save ldap">{html_image src="disk-black.png"} {translate key='AddNoNetIdUser'}</button>
+            <button type="button" class="button ldapsearch">{html_image src="search.png"} {translate key='SearchNetId'}</button>
             <button type="button" class="button clear">{html_image src="slash.png"} {translate key='Cancel'}</button>
         </form>
     </div>

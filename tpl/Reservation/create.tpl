@@ -224,7 +224,7 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 {/if}
 </form>
 
-{if $CanViewAdmin or $CanViewScheduleAdmin}
+{if $CanChangeUser}
 <div class="admin" style="margin-top:30px;">
     <div class="title">
 	{translate key=AddUser}
@@ -376,7 +376,7 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 <script type="text/javascript" src="scripts/autocomplete.js"></script>
 <script type="text/javascript" src="scripts/force-numeric.js"></script>
 <script type="text/javascript" src="scripts/reservation-reminder.js"></script>
-{if $CanViewAdmin or $CanViewScheduleAdmin}
+{if $CanChangeUser}
     <script type="text/javascript" src="{$Path}scripts/admin/ldapUser.js"></script>
 {/if}
 
@@ -386,7 +386,7 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 
     $(document).ready(function ()
     {
-        {if $CanViewAdmin or $CanViewScheduleAdmin}
+        {if $CanChangeUser}
         var ldapUserOptions = {
             getUserInfoUrl:'{$Path}Info/getUserInfo.php?username=',
             addUserSubmitUrl:'{$Path}/schedule/Web/admin/manage_users.php'

@@ -336,7 +336,8 @@ class en_us extends Language
 		$strings['Format'] = 'Format';
 		$strings['OptionalLabel'] = 'Optional Label';
 		$strings['LayoutInstructions'] = 'Enter one slot per line.  Slots must be provided for all 24 hours of the day beginning and ending at 12:00 AM.';
-		$strings['AddUser'] = 'Add User';
+		$strings['AddNoNetIdUser'] = 'Add Non-NetId User';
+                $strings['SearchNetId'] = 'Add User By NetId';
 		$strings['UserPermissionInfo'] = 'Actual access to resource may be different depending on user role, group permissions, or external permission settings';
 		$strings['DeleteUserWarning'] = 'Deleting this user will remove all of their current, future, and historical reservations.';
 		$strings['AddAnnouncement'] = 'Add Announcement';

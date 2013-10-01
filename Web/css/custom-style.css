@@ -1,0 +1,12 @@
+/* 
+    Document   : unm-custom
+    Created on : Sep 30, 2013, 2:53:27 PM
+    Author     : bacchus
+    Description:
+        This is specific to any changes UNM has made to phpscheduleit.
+*/
+
+.button.save.ldap {
+    float: right;
+}
+

@@ -194,7 +194,7 @@ class en_us extends Language
 		$strings['AllUsers'] = 'All Users';
 		$strings['AllGroups'] = 'All Groups';
 		$strings['AllSchedules'] = 'All Schedules';
-		$strings['UsernameOrEmail'] = 'Username or Email';
+		$strings['UsernameOrEmail'] = 'NetID';
 		$strings['Members'] = 'Members';
 		$strings['QuickSlotCreation'] = 'Create slots every %s minutes between %s and %s';
 		$strings['ApplyUpdatesTo'] = 'Apply Updates To';

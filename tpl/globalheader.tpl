@@ -103,7 +103,9 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 					<ul>
 						<li class="menuitem"><a href="{$Path}{Pages::SCHEDULE}">{translate key="Bookings"}</a></li>
 						<li class="menuitem"><a href="{$Path}{Pages::MY_CALENDAR}">{translate key="MyCalendar"}</a></li>
+                                                {if $CanChangeUser}
 						<li class="menuitem"><a href="{$Path}{Pages::CALENDAR}">{translate key="ResourceCalendar"}</a></li>
+                                                {/if}
 						<!--<li class="menuitem"><a href="#">{translate key="Current Status"}</a></li>-->
 						<!--<li class="menuitem"><a href="{$Path}{Pages::OPENINGS}">{translate key="FindAnOpening"}</a></li>-->
 					</ul>
@@ -181,7 +183,9 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 			{/if}
 			{/if}
 				<li class="menubaritem"><a href="{$Path}help.php">{translate key=Help}</a><ul>
+                                        {if $CanChangeUser}
 					<li><a href="{$Path}help.php?ht=admin">{translate key=Administration}</a></li>
+                                        {/if}
 					<li><a href="{$Path}help.php?ht=about">{translate key=About}</a></li>
 				</ul></li>
 			</ul>

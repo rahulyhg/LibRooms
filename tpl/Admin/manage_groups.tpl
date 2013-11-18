@@ -108,11 +108,7 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 			<li><label><input type="checkbox" {formname key=ROLE_ID multi=true}" value="{$role->Id}" /> {$role->Name}</label></li>
 		{/foreach}
         </ul>
-        <ul>
-        {foreach from=$Roles item=role}
-        <li>"{$role->Id}"</li>
-        {/foreach}
-		</ul>
+
 
 		<button type="button" class="button save">{html_image src="tick-circle.png"} {translate key='Update'}</button>
 		<button type="button" class="button cancel">{html_image src="slash.png"} {translate key='Cancel'}</button>

@@ -7,7 +7,8 @@ if (isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER'] != "") {
     $referer = "";
 }
 
-if ($referer == $_SERVER['SERVER_NAME']) {
+// FIX ME!!!!!!
+if ($referer == $_SERVER['SERVER_NAME'] || $referer == "elibrary.unm.edu") {
     
 
     define('ROOT_DIR', '../../');

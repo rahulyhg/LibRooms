@@ -375,7 +375,7 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
 <script type="text/javascript" src="scripts/reservation.js"></script>
 <script type="text/javascript" src="scripts/autocomplete.js"></script>
 <script type="text/javascript" src="scripts/force-numeric.js"></script>
-<script type="text/javascript" src="scripts/reservation-reminder.js"></script>
+<script type="text/javascript" src="scripts/reservation-reminder.js?{$smarty.now}"></script>
 {if $CanChangeUser}
     <script type="text/javascript" src="{$Path}scripts/admin/ldapUser.js"></script>
 {/if}

@@ -55,6 +55,8 @@ function LdapUserManagement(opts)
                         success: function(data) {
                             alert("User added to database");
                             if ($('#changeUserAutocomplete').length) {
+                                $('#changeUsers').attr("style", "display:block;");
+                                $("body").scrollTop($("#changeUsers").offset().top);
                                 $('#changeUserAutocomplete').val(netid);
                                 $('#changeUserAutocomplete').focus().keydown();
                             }

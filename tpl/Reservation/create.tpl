@@ -389,7 +389,7 @@ along with phpScheduleIt.  If not, see <http://www.gnu.org/licenses/>.
         {if $CanChangeUser}
         var ldapUserOptions = {
             getUserInfoUrl:'{$Path}Info/getUserInfo.php?username=',
-            addUserSubmitUrl:'{$Path}/schedule/Web/admin/manage_users.php'
+            addUserSubmitUrl:'{$Path}/scheduleIt/Web/admin/manage_users.php' //FIX ME!!!
         };
         
         var ldapUserManagement = new LdapUserManagement(ldapUserOptions);

@@ -73,7 +73,7 @@ class PrivacyFilter implements IPrivacyFilter
 
 	private function CanView($hideFlagEnabled, $userSession, $ownerId, $reservationView)
 	{
-		if (!$hideFlagEnabled || $userSession->IsAdmin)
+		if (!$hideFlagEnabled || $userSession->IsAdmin || $userSession->IsScheduler ) // Modified by Cameron
 		{
 			return true;
 		}
